@@ -1,0 +1,114 @@
+org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [dispatcherServlet] in context with path [/questionnaire] threw exception [Request processing failed; nested exception is org.springframework.beans.BeanInstantiationException:
+ Failed to instantiate [int]: No default constructor found; nested exception is java.lang.NoSuchMethodException: int.<init>()] with root cause
+
+ java.lang.NoSuchMethodException: int.<init>()
+java.lang.NoSuchMethodException: int.<init>()
+	at java.lang.Class.getConstructor0(Unknown Source)
+	at java.lang.Class.getDeclaredConstructor(Unknown Source)
+
+
+
+关闭服务器之后
+
+java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:40)
+10-Apr-2017 10:43:07.287 信息 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+10-Apr-2017 10:43:07.291 信息 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+10-Apr-2017 10:43:07.293 信息 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+10-Apr-2017 10:43:07.295 信息 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+
+
+jdbcTemplate answerDaoImp
+java.sql.BatchUpdateException: Data truncation: Data too long for column 'answer' at row 1
+Data truncation: Data too long for column 'answer' at row 1
+
+PreparedStatementCallback; SQL [INSERT INTO answer_girl(uid,mood_id,answer) VALUES(?,?,?)]; Data truncation: Data too long for column 'answer' at row 1
+
+原因：多选项太多 的时候 把Answer表中的 answer字段长度由5改成10 加入Answer字段中写入的是 3,4,5,6 长度超过5
+错误并不是因为字段过长而导致出错的,
+
+        1. 可能是因为数据库里的表设置的字符集不相同。
+
+        2. 也可能真是数据库字段里数据库确实过长(我是遇到的这种情况)。
+
+例如：在同一个数据库中，存在utf8的表，也存在gbk_chinese_ci的表。
+
+解决办法：alter table `cms_activity_test` convert to character set gbk collate gbk_chinese_ci;(单独修改指定表的字符集)
+
+
+----------------------
+4.0版本以下，varchar(50)，指的是50字节，如果存放UTF8汉字时，只能存16个（每个汉字3字节） 5.0版本以上，varchar(50)，指的是50字符，无论存放的是数字、字母还是UTF8汉字（每个汉字3字节），
+都可以存放50个 其实最好搜索的办法是在自己数据库中建个表试试可以放多少汉字，现在mysql都5.0已上了，varchar(50)是可以存50个汉字的
+
+
+
+13-Apr-2017 15:25:58.795 严重 [localhost-startStop-3] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [ROOT] created a ThreadLocal with key of type [java.lang.ThreadLocal] 
+(value [java.lang.ThreadLocal@1f305ae]) and a value of type [com.alibaba.druid.wall.spi.WallVisitorUtils.WallTopStatementContext] 
+(value [com.alibaba.druid.wall.spi.WallVisitorUtils$WallTopStatementContext@1ed3912]) but failed to remove it when the web application was stopped. 
+Threads are going to be renewed over time to try and avoid a probable memory leak.
+
+
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:735)
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeader(Http11InputBuffer.java:879)
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeaders(Http11InputBuffer.java:594)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:684)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+
+17-Apr-2017 15:53:43.138 严重 [http-nio-80-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [dispatcherServlet] in context with path [/questionnaire] threw exception [Request processing failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [int]: No default constructor found; nested exception is java.lang.NoSuchMethodException: int.<init>()] with root cause
+ java.lang.NoSuchMethodException: int.<init>()
+	at java.lang.Class.getConstructor0(Unknown Source)
+	at java.lang.Class.getDeclaredConstructor(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:102)
+	at org.springframework.web.method.annotation.ModelAttributeMethodProcessor.createAttribute(ModelAttributeMethodProcessor.java:142)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletModelAttributeMethodProcessor.createAttribute(ServletModelAttributeMethodProcessor.java:80)
+	at org.springframework.web.method.annotation.ModelAttributeMethodProcessor.resolveArgument(ModelAttributeMethodProcessor.java:102)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:161)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:114)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:784)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:802)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1410)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)

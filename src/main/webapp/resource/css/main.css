@@ -1,0 +1,218 @@
+body{
+    color: #222;
+    font-size: .8em;
+    letter-spacing: .05em;
+    font-family: "Verdana","微软雅黑","宋体","Lucida Grande","Lucida Sans Unicode",Tahoma,sans-serif;
+    padding-bottom: 15px;
+    padding-top: 17px;
+    background-attachment: fixed;
+}
+body{
+    display: block;
+    margin: 8px;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 620px;
+    /*width: 60%; 不能设置百分比 不然手机里好小*/
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    position: relative;
+    opacity: .93;
+}
+.form{
+    margin: 20px 15px 0;
+    padding: 0 0 20px;
+}
+
+.logo{
+    background: none repeat scroll 0 0 #494949;
+}
+.form{
+    margin: 20px 15px 0;
+    padding: 0 0 20px;
+}
+form{
+    display: block;
+    margin-top: 0em;
+}
+.info{
+    border-bottom: 1px dotted #ccc;
+    padding: 0 6px 10px 5px;
+}
+
+.fields{
+    padding: 0 0 10px 0;
+    position: relative;
+    zoom: 1;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+ul {
+    list-style-type: none;
+    list-style-image: none;
+}
+
+.fields>li {
+    padding: 6px;
+    position: relative;
+    zoom: 1;
+    clear: both;
+    width: 98%;
+    vertical-align: middle;
+    margin-bottom: 2px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+label {
+    cursor: default;
+}
+
+.desc {
+    padding: 3px 0 3px 0;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin: 0;
+}
+.req {
+    color: red;
+    font-weight: bold;
+}
+
+.req1 {
+    color: #1b6d85;
+    font-weight: bold;
+}
+.req2 {
+    color: #1b6d85;
+}
+.content {
+    overflow: hidden;
+}
+
+.one div span {
+    display: block;
+    float: left;
+    padding: 3px 0;
+    display: block;
+    width: 100%;
+}
+
+.one input, .two input, .three input, .oneByOne input {
+    margin-right: 5px;
+}
+
+label {
+    cursor: default;
+}
+
+.noLabelAlign {
+    width: auto!important;
+    float: none!important;
+}
+
+.noLabelAlign .desc {
+    width: auto!important;
+    margin: 0!important;
+    float: none!important;
+}
+
+.section {
+    border-top: 1px dotted #ccc;
+}
+
+
+.input {
+    font-family: "Verdana","微软雅黑","宋体","Lucida Grande";
+    background-color: #fff;
+    padding: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.input {
+    background-color: #fff;
+    color: #333;
+    font-size: 100%;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+}
+.m {
+    width: 49%;
+    box-sizing: border-box;
+}
+
+.onelineLeft span {
+    margin: 0 3px 8px 0;
+}
+.clear {
+    clear: both;
+}
+.left {
+    float: left;
+}
+.third {
+    width: 32.5%;
+    box-sizing: border-box;
+}
+
+.xxl {
+    width: 99%;
+    box-sizing: border-box;
+}
+
+select {
+    padding-right: 2px!important;
+}
+
+.fields textarea.xxl {
+    height: 250px;
+}
+.fields textarea {
+    width: 99%;
+    min-width: 99%;
+    max-width: 99%;
+}
+
+li.pc-submit {
+    text-align: center;
+}
+
+#btnSubmit {
+    padding: 7px 20px;
+    margin-top: 20px;
+    opacity: .9;
+    border-radius: 2px;
+    font-family: "微软雅黑";
+}
+
+.btn-submit {
+    background-color: #494949;
+    border: 1px solid transparent;
+    color: #fff;
+}
+.h3class{
+    font-family: "Verdana","微软雅黑","宋体","Lucida Grande","Lucida Sans Unicode",Tahoma,sans-serif;
+    font-size: .20em;
+
+}

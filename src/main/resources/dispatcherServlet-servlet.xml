@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--因为会使用Autowired自动装配，把dao注入到service把service注入到controller-->
+    <context:component-scan base-package="nicole.questionnaire.controller"/>
+    <context:component-scan base-package="nicole.questionnaire.service"/>
+    <context:component-scan base-package="nicole.questionnaire.dao"/>
+
+    <mvc:annotation-driven validator="validator" conversion-service="conversion-service"/>
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+    <bean id="conversion-service" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="i18n"/>
+        <property name="useCodeAsDefaultMessage" value="false"/>
+        <property name="fileEncodings" value="utf-8" />
+        <property name="cacheSeconds" value="120" />
+    </bean>
+
+    <!--<mvc:default-servlet-handler/>-->
+    <mvc:resources location="/resource/css/" mapping="/css/**"/>
+    <mvc:resources location="/resource/js/" mapping="/js/**"/>
+    <mvc:resources location="/WEB-INF/view/error/" mapping="/error/**"/>
+
+
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref = "dataSource"/>
+    </bean>
+    <bean id="propertyConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:db-config.properties</value>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <!--数据库基本信息-->
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <property name="driverClassName" value="${driverClassName}"/>
+        <!--打开监控统计功能-->
+        <property name="filters" value="${filters}"/>
+        <!--最大并发数-->
+        <property name="maxActive" value="${maxActive}"/>
+        <!-- 初始化连接数量 -->
+        <property name="initialSize" value="${initialSize}"/>
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${maxWait}"/>
+        <!-- 最小空闲连接数 -->
+        <property name="minIdle" value="${minIdle}"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <!-- <property name="maxIdle" value="${maxIdle}"/>-->
+
+    </bean>
+    <!--给jdbc模板注入数据源-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <map>
+                <entry key="ResourceNotFoundException" value="/error/resourceNotFoundError"/>
+                <entry key="DataAccessException" value="/error/dataAccessError"/>
+                <entry key="NoSuchMethodException" value="/error/noSuchMethodException"/>
+            </map>
+        </property>
+        <property name="statusCodes">
+            <map>
+                <entry key="/error/resourceNotFoundError" value="404"/>
+                <entry key="/error/dataAccessError" value="500"/>
+                <entry key="/error/noSuchMethodException" value="404"/>
+            </map>
+        </property>
+
+        <!--&lt;!&ndash; 设置日志输出级别，不定义则默认不输出警告等错误日志信息 &ndash;&gt;
+        <property name="warnLogCategory" value="WARN"/>
+        &lt;!&ndash; 默认错误页面，当找不到上面mappings中指定的异常对应视图时，使用本默认配置 &ndash;&gt;
+        <property name="defaultErrorView" value="/error/dataAccessError"/>
+        &lt;!&ndash; 默认HTTP状态码 &ndash;&gt;
+        <property name="defaultStatusCode" value="500"/>-->
+    </bean>
+
+</beans>

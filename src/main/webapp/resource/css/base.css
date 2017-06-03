@@ -1,0 +1,83 @@
+body{
+    /*background-color: #f0f0f0;*/
+
+}
+p{
+    font-size: 14px;
+}
+.mt10{
+    margin-top: 10px;
+}
+.header-bg{
+    width: 100%;
+    height: 90px;
+    position: relative;
+    overflow: hidden;
+}
+.log-icon{
+    position: absolute;
+    background: url("../img/KPMG.png") no-repeat;
+    width: 132px;
+    height: 58px;
+    background-size: 100% auto;
+    top: 20px;
+    left: 20px;
+}
+header h2{
+    padding: 0; margin: 0;
+    height: 90px;
+    line-height: 90px;
+    color: #333333;
+    font-weight: normal;
+}
+.question p{
+    position: relative;
+}
+.question .label-type{
+   display: inline-block;
+    margin-left: 10px;
+    height: 15px;
+    width: 70px;
+}
+
+.footer-bg{
+
+    width: 100%;
+
+    background: #cccccc;
+}
+.red-font{
+    color: red;
+}
+.green-font{
+    color: green;
+}
+.orange-font{
+    color: orange;
+}
+
+/*logo*/
+.icon-right{
+    right: 100px;
+    left: auto;
+}
+/*different type:IFRS16 IFRS15 IFRS9*/
+/*.ifrs16{
+	background-color: #ee69e1;
+}
+.ifrs15{
+	background-color: #ee8b8b;
+}
+.ifrs9{
+	background-color: #eeffff;
+}
+.ifrs16 span{
+	color: #ee69e1;
+}
+.ifrs15 span{
+	color: #ee8b8b;
+}
+.ifrs9 span{
+	color: #eeffff;
+}
+*/

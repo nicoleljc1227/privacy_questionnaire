@@ -1,0 +1,402 @@
+
+<!DOCtype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/WEB-INF/css/main.css">
+    <link rel="stylesheet" href="/WEB-INF/css/bootstrap.min.css">
+</head>
+<body>
+<div id="container" class="container">
+    <h1 id="logo" class="logo" style="position: relative"></h1>
+    <form id="form1" class="form" action="/queProfile" method="post">
+
+        <div class="info" id="formHeader"><h2>社交应用隐私策略使用偏好调查</h2>
+            <div><br></div>
+        </div>
+        <ul id="fields" class="fields">
+            <li class=" one" type="radio" reqd="1">
+                <label class="desc">
+                    您是否使用过以下任意一款社交软件? 微信/QQ/人人/Facbook/微博/等其他社交软件
+                    <span class="req">*</span>
+                </label>
+                <div class="content">
+                    <span>
+                        <input class="fld" id="t2" type="radio" name="filed1" value="是">
+                        <label for="t2">是</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t3" type="radio" name="filed1" value="否">
+                        <label for="t3">否</label>
+                    </span>
+                </div>
+
+
+            </li>
+            <li class="one" type="radio">
+                <label class="desc">您使用社交应用的频率是？</label>
+                <div class="content">
+                    <span>
+                        <input class="fld" id="t5" type="radio" name="filed2" value="每天都用">
+                        <label for="t5">每天都用</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t6" type="radio" name="filed2" value="一周一次">
+                        <label for="t6">一周一次</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t7" type="radio" name="filed2" value="几个月一次">
+                        <label for="t7">几个月一次</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t8" type="radio" name="filed2" value="一年及以上使用一次">
+                        <label for="t8">一年及以上使用一次</label>
+                    </span>
+                </div>
+            </li>
+
+            <li class="one" type="radio">
+                <label class="desc">您大概多久在社交应用上发布动态(图片/文字/签到)？</label>
+                <div class="content">
+                    <span>
+                        <input class="fld" id="t10" type="radio" name="F3_radio" value="每天都发">
+                        <label for="t10">每天都发</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t11" type="radio" name="F3_radio" value="一周发几条">
+                        <label for="t11">一周发几条</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t12" type="radio" name="F3_radio" value="几个月一条">
+                        <label for="t12">几个月一条</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t13" type="radio" name="F3_radio" value="一年发几条">
+                        <label for="t13">一年发几条</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t14" type="radio" name="F3_radio" value="几年发条动态">
+                        <label for="t14">几年发条动态</label>
+                    </span>
+                </div>
+            </li>
+
+            <li  class="leftHalf  one" type="radio" reqd="1">
+                <label class="desc">您对发布的内容会进行隐私设置么(所有人可见、仅自己可见、仅好友可见、自定义分组可见)？
+                    <span class="req">*</span>
+                </label>
+                <div class="content">
+                    <span><input class="fld" id="t16" type="radio" name="F5_radio" value="会">
+                    <label for="t16">会</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t17" type="radio" name="F5_radio" value="不会">
+                        <label for="t17">不会</label>
+                    </span>
+                </div>
+            </li>
+
+            <li class=" one" type="radio" reqd="1">
+                <label class="desc">您对发布的内容通常进行哪些隐私设置？
+                    <span class="req">*</span>
+                </label>
+                <div class="content">
+                    <span>
+                        <input class="fld" id="t19" type="radio" name="F4_radio" value="所有发布的内容都设置为：所有人可见">
+                        <label for="t19">所有发布的内容都设置为：所有人可见</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t20" type="radio" name="F4_radio" value="所有发布的内容都设置为：仅好友可见">
+                        <label for="t20">所有发布的内容都设置为：仅好友可见</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t21" type="radio" name="F4_radio" value="只使用：仅好友可见和所有人可见  这2种策略">
+                        <label for="t21">只使用：仅好友可见和所有人可见  这2种策略</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t22" type="radio" name="F4_radio" value="只使用：仅好友可见和自定义分组可见 这2种策略">
+                        <label for="t22">只使用：仅好友可见和自定义分组可见 这2种策略</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t23" type="radio" name="F4_radio" value="只使用：自定义分组可见 这一种策略">
+                        <label for="t23">只使用：自定义分组可见 这一种策略</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t24" type="radio" name="F4_radio" value="只使用：仅自己可见 这一种策略">
+                        <label for="t24">只使用：仅自己可见 这一种策略</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t25" type="radio" name="F4_radio" value="以上几种策略都使用过">
+                        <label for="t25">以上几种策略都使用过</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t26" type="radio" name="F4_radio" value="其他社交应用策略">
+                        <label for="t26">其他社交应用策略</label>
+                    </span>
+                </div>
+            </li>
+
+            <li class="" type="section">
+                <div class="noLabelAlign">
+                    <label class="desc section"></label>
+                    <div class="content section-desc">
+                        <p>
+                            接下来统计您的基本个人信息，本调查问卷用于学术研究，您真实的个人数据是我们研究的前提！ 在此郑重声明：不会泄露用户隐私数据；谢谢您的支持！
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="one" type="radio" reqd="1">
+                <label class="desc">性别
+                    <span class="req">*</span>
+                </label>
+                <div class="content">
+                    <span>
+                        <input class="fld" id="t29" type="radio" name="F7_radio" value="男">
+                        <label for="t29">男</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t30" type="radio" name="F7_radio" value="女">
+                        <label for="t30">女</label>
+                    </span>
+                </div>
+            </li>
+
+            <li class="" type="text" reqd="1">
+                <label class="desc">年龄
+                    <span class="req">*</span>
+                </label>
+                <div class="content">
+                    <input id="tmpid" type="text" maxlength="256" name="F8" class="input fld m">
+                </div>
+            </li>
+            <li class=" three" type="radio" reqd="1">
+                <label class="desc">学历
+                    <span class="req">*</span>
+                </label>
+                <div class="content">
+                    <span>
+                        <input class="fld" id="t33" type="radio" name="F6_radio" value="高中及以下">
+                        <label for="t33">高中及以下</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t34" type="radio" name="F6_radio" value="本科">
+                        <label for="t34">本科</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t35" type="radio" name="F6_radio" value="硕士">
+                        <label for="t35">硕士</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t36" type="radio" name="F6_radio" value="博士及以上">
+                        <label for="t36">博士及以上</label>
+                    </span>
+                    <span>
+                        <input type="radio" class="fld other" id="t37" name="F6_radio" value="其它">
+                        <label for="t37">其它</label>
+                        <input type="text" class="fld input m other">
+                    </span>
+                </div>
+            </li>
+
+            <li class=" three" type="radio" reqd="1">
+                <label class="desc">职业
+                    <span class="req">*</span>
+                </label>
+                <div class="content">
+                    <span>
+                        <input class="fld" id="t39" type="radio" name="F9_radio" value="学生">
+                        <label for="t39">学生</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t40" type="radio" name="F9_radio" value="教师">
+                        <label for="t40">教师</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t41" type="radio" name="F9_radio" value="医生/护士">
+                        <label for="t41">医生/护士</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t42" type="radio" name="F9_radio" value="建筑/设计师">
+                        <label for="t42">建筑/设计师</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t43" type="radio" name="F9_radio" value="软件研发/测试人员">
+                        <label for="t43">软件研发/测试人员</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t44" type="radio" name="F9_radio" value="商人">
+                        <label for="t44">商人</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t45" type="radio" name="F9_radio" value="工人">
+                        <label for="t45">工人</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t46" type="radio" name="F9_radio" value="会计师">
+                        <label for="t46">会计师</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t47" type="radio" name="F9_radio" value="经理">
+                        <label for="t47">经理</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t48" type="radio" name="F9_radio" value="主持人">
+                        <label for="t48">主持人</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t49" type="radio" name="F9_radio" value="销售人员">
+                        <label for="t49">销售人员</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t50" type="radio" name="F9_radio" value="公务员/行政人员">
+                        <label for="t50">公务员/行政人员</label>
+                    </span>
+                    <span>
+                        <input class="fld" id="t51" type="radio" name="F9_radio" value="司机">
+                        <label for="t51">司机</label>
+                    </span>
+                    <span>
+                        <input type="radio" class="fld other" id="t52" name="F9_radio" value="其它">
+                        <label for="t52">其它</label>
+                        <input type="text" class="fld input m other">
+                    </span>
+                </div>
+            </li>
+
+            <li class="" type="text">
+                <label class="desc">家乡</label>
+                <div class="content">
+                    <input id="tmpid" type="text" maxlength="256" name="F10" class="input fld m">
+                </div>
+            </li>
+
+            <li  class="" type="text">
+                <label class="desc">公司</label>
+                <div class="content">
+                    <input id="tmpid" type="text" maxlength="256" name="F11" class="input fld m">
+                </div>
+            </li>
+
+            <li class="" type="email" reqd="1">
+                <label class="desc">QQ邮箱
+                    <span class="req">*</span>
+                </label>
+                <div class="content">
+                    <input type="text" maxlength="40" name="F16" class="email input fld m" value="">
+                </div>
+            </li>
+
+            <li class="" type="address" reqd="1" def="浙江省-杭州市-江干区">
+                <label class="desc">现在居住地
+                    <span class="req">*</span>
+                </label>
+                <div class="content onelineLeft">
+                    <span class="left third clear">
+                        <select class="xxl province input fld" name="F13">
+                            <option value="">省/自治区/直辖市</option>
+                            <option value="北京市">北京市</option>
+                            <option value="天津市">天津市</option>
+                            <option value="河北省">河北省</option>
+                            <option value="山西省">山西省</option>
+                            <option value="内蒙古自治区">内蒙古自治区</option>
+                            <option value="辽宁省">辽宁省</option>
+                            <option value="吉林省">吉林省</option>
+                            <option value="黑龙江省">黑龙江省</option>
+                            <option value="上海市">上海市</option>
+                            <option value="江苏省">江苏省</option>
+                            <option value="浙江省">浙江省</option>
+                            <option value="安徽省">安徽省</option>
+                            <option value="福建省">福建省</option>
+                            <option value="江西省">江西省</option>
+                            <option value="山东省">山东省</option>
+                            <option value="河南省">河南省</option>
+                            <option value="湖北省">湖北省</option>
+                            <option value="湖南省">湖南省</option>
+                            <option value="广东省">广东省</option>
+                            <option value="广西壮族自治区">广西壮族自治区</option>
+                            <option value="海南省">海南省</option>
+                            <option value="重庆市">重庆市</option>
+                            <option value="四川省">四川省</option>
+                            <option value="贵州省">贵州省</option>
+                            <option value="云南省">云南省</option>
+                            <option value="西藏自治区">西藏自治区</option>
+                            <option value="陕西省">陕西省</option>
+                            <option value="甘肃省">甘肃省</option>
+                            <option value="青海省">青海省</option>
+                            <option value="宁夏回族自治区">宁夏回族自治区</option>
+                            <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+                            <option value="香港特别行政区">香港特别行政区</option>
+                            <option value="澳门特别行政区">澳门特别行政区</option>
+                            <option value="台湾">台湾</option>
+                            <option value="海外">海外</option>
+                        </select>
+                    </span>
+                    <span class="left third">
+                        <select class="xxl city input fld" name="F14">
+                            <option value="">市</option>
+                            <option value="杭州市">杭州市</option>
+                            <option value="湖州市">湖州市</option>
+                            <option value="嘉兴市">嘉兴市</option>
+                            <option value="金华市">金华市</option>
+                            <option value="丽水市">丽水市</option>
+                            <option value="宁波市">宁波市</option>
+                            <option value="绍兴市">绍兴市</option>
+                            <option value="台州市">台州市</option>
+                            <option value="温州市">温州市</option>
+                            <option value="舟山市">舟山市</option>
+                            <option value="衢州市">衢州市</option>
+                        </select>
+                    </span>
+                    <span class="left third">
+                        <select class="xxl zip input fld" name="F12">
+                            <option value="">区/县</option>
+                            <option value="滨江区">滨江区</option>
+                            <option value="上城区">上城区</option>
+                            <option value="拱墅区">拱墅区</option>
+                            <option value="江干区">江干区</option>
+                            <option value="西湖区">西湖区</option>
+                            <option value="下城区">下城区</option>
+                            <option value="萧山区">萧山区</option>
+                            <option value="余杭区">余杭区</option>
+                            <option value="富阳市">富阳市</option>
+                            <option value="临安市">临安市</option>
+                            <option value="建德市">建德市</option>
+                            <option value="桐庐县">桐庐县</option>
+                            <option value="淳安县">淳安县</option>
+                        </select>
+                    </span>
+                    <span class="left" style="width:100%;">
+                        <textarea style="height:60px" class="xxl detail input fld" name="F15" placeholder="详细地址">
+
+                        </textarea>
+                    </span>
+                </div>
+            </li>
+
+            <li class="pc-submit">
+                <input id="btnSubmit" type="submit" class="btn-submit" onclick="return false;" value="提交">
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </ul>
+    </form>
+</div>
+</body>
+</html>
